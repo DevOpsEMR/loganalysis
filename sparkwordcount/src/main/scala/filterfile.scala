@@ -11,7 +11,7 @@ object filterfile {
    val logData = sc.textFile(logFile, 2).cache()
    val numAs = logData.filter(line => line.contains("ERROR")).count()
    val numBs = logData.filter(line => line.contains("WARNING")).count()
-   val numCs = logData.filter(line => line.contains("INFO")).count()
+   //val numCs = logData.filter(line => line.contains("INFO")).count()
      println("Lines with ERROR: %s, Lines with WARNING: %s".format(numAs, numBs))     
   }
 }
