@@ -17,11 +17,10 @@ object filterfile {
     val pathToFiles = "s3://devopsemr/server_system_log"
     val outputPath = "s3://devopsemr/erroroutput.txt"
     val files = sc.textFile(pathToFiles)
-    //replace  space with ,
-    //val rowsWithoutSpaces = files.map(_.replaceAll(" ", ","))
+   
     //Save the file
     val fileWithError = files.filter(line => line.contains("WARN"))
-    fileWithError.saveAsTextFile(outputPath)
+    fileWithError.saveAsTextFile(outputPath) 
   }
 
 }
