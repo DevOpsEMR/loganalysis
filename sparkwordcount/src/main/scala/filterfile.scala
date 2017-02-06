@@ -14,8 +14,8 @@ object filterfile {
     hadoopConf.set("fs.s3.awsAccessKeyId", "AKIAJBGUMHBIOXCXMCWA")
     hadoopConf.set("fs.s3.awsSecretAccessKey", "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")
     //
-    val pathToFiles = "s3://devopsemr/server_system_log"
-    val outputPath = "s3://devopsemr/erroroutput.txt"
+    val pathToFiles = "s3://devopsemr/server_system_log.txt"
+    val outputPath = "s3://devopsemr/filteredlogs.txt"
     val files = sc.textFile(pathToFiles)
    
     //Save the file
