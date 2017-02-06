@@ -14,15 +14,14 @@ object filterfile {
     hadoopConf.set("fs.s3.awsAccessKeyId", "AKIAJBGUMHBIOXCXMCWA")
     hadoopConf.set("fs.s3.awsSecretAccessKey", "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")
     //
-    
     val pathToFiles = "s3://devopsemr/commafile.txt"
     val outputPath = "s3://devopsemr/output.txt"
     val files = sc.textFile(pathToFiles)
-   
-    val rowsWithoutSpaces = files.map(_.replaceAll(" ", ","))
-    
-    //rowsWithoutSpaces.saveAsTextFile(outputPath)
-    files.saveAsTextFile(outputPath)
+    //replace  space with ,
+    //val rowsWithoutSpaces = files.map(_.replaceAll(" ", ","))
+    //Save the file
+    val fileWithError = files.filter(line => line.contains("WARN"))
+    fileWithError.saveAsTextFile(outputPath)
   }
 
 }
