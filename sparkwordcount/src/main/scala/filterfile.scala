@@ -9,10 +9,7 @@ object filterfile {
     val conf = new SparkConf().setAppName("Spark Wordcount").setMaster("local[2]").set("spark.executor.memory","1g");
     val sc = new SparkContext(conf)
     //
-    val hadoopConf = sc.hadoopConfiguration
-    hadoopConf.set("fs.s3.impl", "org.apache.hadoop.fs.s3native.NativeS3FileSystem")
-    hadoopConf.set("fs.s3.awsAccessKeyId", "AKIAJBGUMHBIOXCXMCWA")
-    hadoopConf.set("fs.s3.awsSecretAccessKey", "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")
+
     //
     val pathToFiles = "s3://devopsemr/server_system_log.txt"
     val outputPath = "s3://devopsemr/emrjoboutput.txt"
